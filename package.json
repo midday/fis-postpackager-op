@@ -1,0 +1,25 @@
+{
+  "name": "fis-postpackager-op",
+  "version": "0.0.1",
+  "description": "output release file to current dir",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ybbjegj/fis-postpackager-op.git"
+  },
+  "author": {
+    "name": "MingliGuo",
+    "email": "guomilo@gmail.com"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ybbjegj/fis-postpackager-op/issues"
+  },
+  "homepage": "https://github.com/ybbjegj/fis-postpackager-op#readme",
+  "dependencies": {
+
+  }
+}
