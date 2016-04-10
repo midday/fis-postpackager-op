@@ -19,9 +19,10 @@ module.exports = function (ret, conf, settings, opt) {
     if (fis.util.exists(wlPath)) {
         require(wlPath);
     }
+
     opConfig = fis.config.get('op-config') || {};
 
-    outputDir = opConfig.output || settings.output || (rootPath + 'op-tmpl');
+    outputDir = opConfig.output || settings.output;
 
     _exclude = opConfig.exclude || [];
 
@@ -39,7 +40,11 @@ module.exports = function (ret, conf, settings, opt) {
             var filePath = file.toString(),
                 newPath;
             if (fis.util.filter(filePath, include, exclude)) {
-                newPath = (outputDir.replace(/\/$/, '')) + '/' + rootName + '/' + file.id;
+                if (outputDir) {
+                    newPath = (outputDir.replace(/\/$/, '')) + '/' + rootName + '/' + file.id;
+                } else {
+                    newPath = file.dirname + '/' + file.filename + '.smtpl';
+                }
                 if (!fis.util.exists(newPath) || !equal(fis.util.read(newPath), file.getContent())) {
                     fis.util.write(newPath, file.getContent());
                 }
